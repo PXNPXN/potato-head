@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.security.PrivateKey;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     private ImageView mImageView1;
     private ImageView mImageView2;
     private ImageView mImageView3;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity  {
     private CheckBox mCheckBox8;
     private CheckBox mCheckBox9;
     private CheckBox mCheckBox10;
+    private CheckBox mCheckBox11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +69,14 @@ public class MainActivity extends AppCompatActivity  {
         mCheckBox8=(CheckBox)findViewById(R.id.cb_shoes);
         mCheckBox9=(CheckBox)findViewById(R.id.cb_glasses);
         mCheckBox10=(CheckBox)findViewById(R.id.cb_nose);
+        mCheckBox11=(CheckBox)findViewById(R.id.cb_ears);
     }
 
     private void event() {
-        mCheckBox1.setOnCheckedChangeListener(new arms());
-        mCheckBox2.setOnCheckedChangeListener(new ears());
+//        mCheckBox1.setOnCheckedChangeListener(new arms());
+//        mCheckBox2.setOnCheckedChangeListener(new ears());
+        mCheckBox1.setOnCheckedChangeListener(this);
+        /******************************************/
         mCheckBox3.setOnCheckedChangeListener(new eyebrows());
         mCheckBox4.setOnCheckedChangeListener(new eyes());
         mCheckBox5.setOnCheckedChangeListener(new hat());
@@ -81,31 +85,49 @@ public class MainActivity extends AppCompatActivity  {
         mCheckBox8.setOnCheckedChangeListener(new shoes());
         mCheckBox9.setOnCheckedChangeListener(new glasses());
         mCheckBox10.setOnCheckedChangeListener(new nose());
+        mCheckBox11.setOnCheckedChangeListener(this);
     }
 
-    private class arms implements CompoundButton.OnCheckedChangeListener {
-        public void onCheckedChanged(CompoundButton button, boolean isChecked) {
-            if (mCheckBox1.isChecked()) {
-                mImageView8.setVisibility(View.VISIBLE);
-            }
-            else{
-                mImageView8.setVisibility(View.INVISIBLE);
-            }
-
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (mCheckBox1.isChecked()) {
+            mImageView8.setVisibility(View.VISIBLE);
+        }
+        else{
+            mImageView8.setVisibility(View.INVISIBLE);
+        }
+        if (mCheckBox2.isChecked()) {
+            mImageView2.setVisibility(View.VISIBLE);
+        }
+        else{
+            mImageView2.setVisibility(View.INVISIBLE);
         }
     }
 
-    private class ears implements CompoundButton.OnCheckedChangeListener {
-        public void onCheckedChanged(CompoundButton button, boolean isChecked) {
-            if (mCheckBox2.isChecked()) {
-                mImageView2.setVisibility(View.VISIBLE);
-            }
-            else{
-                mImageView2.setVisibility(View.INVISIBLE);
-            }
-
-        }
-    }
+//    private class arms implements CompoundButton.OnCheckedChangeListener {
+//        public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+//            if (mCheckBox1.isChecked()) {
+//                mImageView8.setVisibility(View.VISIBLE);
+//            }
+//            else{
+//                mImageView8.setVisibility(View.INVISIBLE);
+//            }
+//
+//
+//        }
+//    }
+//
+//    private class ears implements CompoundButton.OnCheckedChangeListener {
+//        public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+//            if (mCheckBox2.isChecked()) {
+//                mImageView2.setVisibility(View.VISIBLE);
+//            }
+//            else{
+//                mImageView2.setVisibility(View.INVISIBLE);
+//            }
+//
+//        }
+//    }
 
     private class eyebrows implements CompoundButton.OnCheckedChangeListener {
         public void onCheckedChanged(CompoundButton button, boolean isChecked) {
