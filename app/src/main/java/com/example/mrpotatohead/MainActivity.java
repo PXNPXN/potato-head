@@ -8,7 +8,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.security.PrivateKey;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     private CheckBox mCheckBox9;
     private CheckBox mCheckBox10;
     private CheckBox mCheckBox11;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
